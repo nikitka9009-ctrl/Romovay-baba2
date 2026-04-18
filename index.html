@@ -48,16 +48,16 @@
       "@type": "Bakery",
       "name": "Пекарня «Ромовая баба»",
       "image": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/184a8fa91-74cf-4a29-80e5-fd1686a96a03.png",
-      "telephone": "+7-999-000-00-00",
+      "telephone": "+7-961-991-56-11",
       "url": "https://ВАШ-ДОМЕН.ru",
       "address": { "@type": "PostalAddress", "addressLocality": "Барнаул", "addressRegion": "Алтайский край", "addressCountry": "RU" },
-      "openingHours": "Mo-Su 08:00-21:00",
+      "openingHours": "Mo-Su 09:00-20:45",
       "priceRange": "₽"
     }
     </script>
 </head>
 <body class="font-sans text-textmain bg-[#FFFBF5] antialiased"
-      x-data="{ isMobileMenuOpen: false, activeCategory: 'all', modalImage: null, whatsappLink: 'https://wa.me/79990000000', menuItems: [], reviews: [], 
+      x-data="{ isMobileMenuOpen: false, activeCategory: 'all', modalImage: null, whatsappLink: 'https://wa.me/79619915611', menuItems: [], reviews: [], 
                 async init() { 
                     const [p, r] = await Promise.all([fetch('./data/products.json').then(res=>res.json()), fetch('./data/reviews.json').then(res=>res.json())]);
                     this.menuItems = p; this.reviews = r; 
@@ -196,9 +196,13 @@
                     <p class="text-white/80 text-lg">Выберите ближайшую пекарню или свяжитесь с нами</p>
                 </div>
                 <div class="text-center mb-12">
-                    <a href="tel:+79990000000" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-amber-400/60 text-white hover:bg-white/10 hover:border-amber-400 transition-all duration-300 tap-target">
-                        <i data-lucide="phone" class="w-6 h-6 text-amber-400"></i> Единый номер: +7 (999) 000-00-00
+                    <a href="tel:+79619915611" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-amber-400/60 text-white hover:bg-white/10 hover:border-amber-400 transition-all duration-300 tap-target">
+                        <i data-lucide="phone" class="w-6 h-6 text-amber-400"></i> Единый номер: +7 (961) 991-56-11
                     </a>
+                    <p class="mt-3 text-white/70 text-sm flex items-center justify-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+                        Режим работы: ежедневно с 09:00 до 20:45
+                    </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     <template x-for="(addr, idx) in ['ул. 280-летия Барнаула, 24','пр. Красноармейский, 69Б','ул. Попова, 162','пр. Ленина, 47','ул. Гущина, 182','пр. Социалистический, 38']" :key="idx">
@@ -209,8 +213,8 @@
                     </template>
                 </div>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="https://wa.me/79990000000" target="_blank" class="inline-flex items-center px-8 py-4 bg-bread-warm rounded-2xl font-bold hover:bg-bread-dark transition-colors tap-target"><i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Написать в WhatsApp</a>
-                    <a href="tel:+79990000000" class="inline-flex items-center px-8 py-4 bg-white/10 border border-white/20 rounded-2xl font-bold hover:bg-white/20 transition-colors tap-target"><i data-lucide="phone" class="w-5 h-5 mr-2"></i> Позвонить</a>
+                    <a href="https://wa.me/79619915611" target="_blank" class="inline-flex items-center px-8 py-4 bg-bread-warm rounded-2xl font-bold hover:bg-bread-dark transition-colors tap-target"><i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Написать в WhatsApp</a>
+                    <a href="tel:+79619915611" class="inline-flex items-center px-8 py-4 bg-white/10 border border-white/20 rounded-2xl font-bold hover:bg-white/20 transition-colors tap-target"><i data-lucide="phone" class="w-5 h-5 mr-2"></i> Позвонить</a>
                 </div>
             </div>
         </section>
