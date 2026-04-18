@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: nikitka9009-ctrl/Romovay-baba2
+  branch: main
+  client_id: Ov23liyTw3XCmlUbsz9L
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "menu"
+    label: "🥐 Меню"
+    file: "data/products.json"
+    format: "json"
+    fields:
+      - label: "Товары"
+        name: "products"
+        widget: "list"
+        allow_add: true
+        allow_delete: true
+        fields:
+          - { label: "ID", name: "id", widget: "number" }
+          - { label: "Название", name: "name", widget: "string" }
+          - { label: "Описание", name: "desc", widget: "string" }
+          - { label: "Цена", name: "price", widget: "string" }
+          - { label: "Категория", name: "category", widget: "select", options: ["pastry", "pies", "our-menu"] }
+          - { label: "Путь к фото", name: "img", widget: "string" }
+
+  - name: "reviews"
+    label: "💬 Отзывы"
+    file: "data/reviews.json"
+    format: "json"
+    fields:
+      - label: "Отзывы"
+        name: "reviews"
+        widget: "list"
+        allow_add: true
+        allow_delete: true
+        fields:
+          - { label: "Имя", name: "name", widget: "string" }
+          - { label: "Текст", name: "text", widget: "text" }
+          - { label: "Рейтинг", name: "rating", widget: "select", options: [1, 2, 3, 4, 5] }
+
+  - name: "settings"
+    label: "⚙️ Настройки сайта"
+    files:
+      - name: "hours"
+        label: "🕒 Время работы"
+        file: "data/settings.json"
+        format: "json"
+        fields:
+          - { label: "Текст графика", name: "work_hours_text", widget: "string", default: "ежедневно с 09:00 до 20:45" }
+          - { label: "Телефон", name: "phone", widget: "string", default: "+7 (961) 991-56-11" }
+      - name: "promos"
+        label: "🔥 Акции"
+        file: "data/promotions.json"
+        format: "json"
+        fields:
+          - label: "Список акций"
+            name: "promotions"
+            widget: "list"
+            allow_add: true
+            allow_delete: true
+            fields:
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Описание", name: "desc", widget: "text" }
+              - { label: "Активна", name: "active", widget: "boolean", default: true }
