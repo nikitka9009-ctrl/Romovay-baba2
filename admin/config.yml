@@ -3,6 +3,7 @@ backend:
   repo: nikitka9009-ctrl/Romovay-baba2
   branch: main
   client_id: Ov23liyTw3XCmlUbsz9L
+  auth_endpoint: false
 
 media_folder: "images"
 public_folder: "/images"
