@@ -1,15 +1,17 @@
-[
-  {"id": 2, "category": "pastry", "name": "Ромовая баба", "desc": "Фирменная пропитка, помадка и изюм", "price": "150 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/175033138-0ca8-45d4-aee2-003bcfa82180.png"},
-  {"id": 3, "category": "pastry", "name": "Сочень с творогом", "desc": "Нежное песочное тесто и много творога", "price": "90 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/176aaa6e8-82c5-44b5-90d0-886e77945a40.png"},
-  {"id": 4, "category": "pastry", "name": "Булочка с корицей", "desc": "Ароматная корица и сливочная глазурь", "price": "110 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/1d3ec0275-9692-45a4-a91b-c3807db2a0bd.png"},
-  {"id": 5, "category": "pies", "name": "Пирог с мясом", "desc": "Сытная начинка в дрожжевом тесте", "price": "650 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/18d18a85d-c386-4823-94b7-1ff36dc33151.png"},
-  {"id": 6, "category": "pies", "name": "Киш Лорен", "desc": "Открытый пирог на песочном тесте", "price": "720 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/1d3b0fb1d-f28d-493a-8d4b-2166b50e42ae.png"},
-  {"id": 7, "category": "pies", "name": "Пирог с горбушей", "desc": "Нежная рыба и рис в слоеном тесте", "price": "800 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/1b6906d20-5d60-4f74-8213-8f059bdf98af.png"},
-  {"id": 101, "category": "our-menu", "name": "Слойка с яблоком", "desc": "Нежное слоёное тесто с яблочной начинкой", "price": "45 ₽", "img": "images/image4.webp"},
-  {"id": 102, "category": "our-menu", "name": "Ватрушка с творогом", "desc": "Классическая ватрушка с нежным творогом", "price": "50 ₽", "img": "images/image5.webp"},
-  {"id": 103, "category": "our-menu", "name": "Пирожок с мясом", "desc": "Сытный пирожок с говядиной и луком", "price": "55 ₽", "img": "images/image6.webp"},
-  {"id": 104, "category": "our-menu", "name": "Булочка с корицей", "desc": "Ароматная булочка с корицей и сахаром", "price": "60 ₽", "img": "images/image7.webp"},
-  {"id": 105, "category": "our-menu", "name": "Пончик глазированный", "desc": "Воздушный пончик с сахарной глазурью", "price": "70 ₽", "img": "images/image8.webp"},
-  {"id": 106, "category": "our-menu", "name": "Пирожное «Картошка»", "desc": "Любимое пирожное с какао и орехами", "price": "75 ₽", "img": "images/image9.webp"},
-  {"id": 107, "category": "our-menu", "name": "Рогалик с вишней", "desc": "Хрустящий рогалик с вишнёвой начинкой", "price": "80 ₽", "img": "images/image10.webp"}
-]
+{
+  "products": [
+    { "id": 2, "category": "pastry", "name": "Ромовая баба", "desc": "Фирменная пропитка, помадка и изюм", "price": "150 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/175033138-0ca8-45d4-aee2-003bcfa82180.png" },
+    { "id": 3, "category": "pastry", "name": "Сочень с творогом", "desc": "Нежное песочное тесто и много творога", "price": "90 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/176aaa6e8-82c5-44b5-90d0-886e77945a40.png" },
+    { "id": 4, "category": "pastry", "name": "Булочка с корицей", "desc": "Ароматная корица и сливочная глазурь", "price": "110 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/1d3ec0275-9692-45a4-a91b-c3807db2a0bd.png" },
+    { "id": 5, "category": "pies", "name": "Пирог с мясом", "desc": "Сытная начинка в дрожжевом тесте", "price": "650 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/18d18a85d-c386-4823-94b7-1ff36dc33151.png" },
+    { "id": 6, "category": "pies", "name": "Киш Лорен", "desc": "Открытый пирог на песочном тесте", "price": "720 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/1d3b0fb1d-f28d-493a-8d4b-2166b50e42ae.png" },
+    { "id": 7, "category": "pies", "name": "Пирог с горбушей", "desc": "Нежная рыба и рис в слоеном тесте", "price": "800 ₽", "img": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/1b6906d20-5d60-4f74-8213-8f059bdf98af.png" },
+    { "id": 101, "category": "our-menu", "name": "Слойка с яблоком", "desc": "Нежное слоёное тесто с яблочной начинкой", "price": "45 ₽", "img": "images/image4.webp" },
+    { "id": 102, "category": "our-menu", "name": "Ватрушка с творогом", "desc": "Классическая ватрушка с нежным творогом", "price": "50 ₽", "img": "images/image5.webp" },
+    { "id": 103, "category": "our-menu", "name": "Пирожок с мясом", "desc": "Сытный пирожок с говядиной и луком", "price": "55 ₽", "img": "images/image6.webp" },
+    { "id": 104, "category": "our-menu", "name": "Булочка с корицей", "desc": "Ароматная булочка с корицей и сахаром", "price": "60 ₽", "img": "images/image7.webp" },
+    { "id": 105, "category": "our-menu", "name": "Пончик глазированный", "desc": "Воздушный пончик с сахарной глазурью", "price": "70 ₽", "img": "images/image8.webp" },
+    { "id": 106, "category": "our-menu", "name": "Пирожное «Картошка»", "desc": "Любимое пирожное с какао и орехами", "price": "75 ₽", "img": "images/image9.webp" },
+    { "id": 107, "category": "our-menu", "name": "Рогалик с вишней", "desc": "Хрустящий рогалик с вишнёвой начинкой", "price": "80 ₽", "img": "images/image10.webp" }
+  ]
+}
