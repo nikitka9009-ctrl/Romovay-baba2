@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Пекарня «Ромовая баба» в Барнауле. Свежая выпечка, домашние пироги и фирменные десерты каждый день. Доставка по городу. 6 филиалов.">
+    <meta name="keywords" content="пекарня Барнаул, ромовая баба купить, свежая выпечка, пироги на заказ, доставка выпечки Барнаул">
+    <meta property="og:title" content="Пекарня «Ромовая баба» | Барнаул">
+    <meta property="og:description" content="Свежая выпечка и домашние пироги. Готовим с любовью каждый день.">
+    <meta property="og:image" content="https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/184a8fa91-74cf-4a29-80e5-fd1686a96a03.png">
+    <meta property="og:type" content="website">
+    <title>Пекарня «Ромовая баба» | Барнаул</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = { theme: { extend: { colors: { bread: { light: '#F5F5DC', DEFAULT: '#D2B48C', warm: '#A0522D', dark: '#5D2E12' }, textmain: '#3E2723', textlight: '#795548' }, fontFamily: { sans: ['Montserrat', 'sans-serif'], serif: ['Playfair Display', 'serif'] } } } }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; overflow-y: auto; }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-y: auto; }
+        [x-cloak] { display: none !important; }
+        .glass-box { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .hero-img-fix { filter: brightness(0.85); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(93, 46, 18, 0.15); }
+        .tab-active { background-color: #A0522D; color: white; }
+        .tab-inactive { background-color: rgba(160, 82, 45, 0.1); color: #A0522D; }
+        .stars { color: #F59E0B; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .snap-container { scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; }
+        .snap-item { scroll-snap-align: start; }
+        .tap-target { min-height: 44px; min-width: 44px; }
+    </style>
+
+    <!-- JSON-LD: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Пекарня «Ромовая баба»",
+      "image": "https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/184a8fa91-74cf-4a29-80e5-fd1686a96a03.png",
+      "telephone": "+7-961-991-56-11",
+      "url": "https://romovaya-baba.ru",
+      "address": { "@type": "PostalAddress", "addressLocality": "Барнаул", "addressRegion": "Алтайский край", "addressCountry": "RU" },
+      "openingHours": "Mo-Su 08:00-21:00",
+      "priceRange": "₽"
+    }
+    </script>
+</head>
+<body class="font-sans text-textmain bg-[#FFFBF5] antialiased"
+      x-data="{ isMobileMenuOpen: false, activeCategory: 'all', modalImage: null, whatsappLink: 'https://wa.me/79619915611', menuItems: [], reviews: [], 
+                async init() { 
+                    const [p, r] = await Promise.all([fetch('data/products.json').then(res=>res.json()), fetch('data/reviews.json').then(res=>res.json())]);
+                    this.menuItems = p; this.reviews = r; 
+                    setTimeout(() => lucide.createIcons(), 100);
+                },
+                filteredItems() { if(this.activeCategory==='all') return this.menuItems; return this.menuItems.filter(i=>i.category===this.activeCategory); },
+                openModal(u){ this.modalImage=u; }, closeModal(){ this.modalImage=null; } }" 
+      x-cloak>
+
+    <!-- Mobile Menu Overlay -->
+    <div x-cloak x-show="isMobileMenuOpen" x-transition.opacity.duration.300ms class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" @click.self="isMobileMenuOpen=false">
+        <div x-show="isMobileMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl p-8 flex flex-col">
+            <button @click="isMobileMenuOpen=false" class="self-end mb-8 p-2 hover:bg-bread-light rounded-full tap-target"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <nav class="flex flex-col space-y-6 text-lg font-medium">
+                <a href="#menu" @click="isMobileMenuOpen=false" class="hover:text-bread-warm transition-colors tap-target">Меню</a>
+                <a href="#reviews" @click="isMobileMenuOpen=false" class="hover:text-bread-warm transition-colors tap-target">Отзывы</a>
+                <a href="#contacts" @click="isMobileMenuOpen=false" class="hover:text-bread-warm transition-colors tap-target">Адреса</a>
+            </nav>
+            <a :href="whatsappLink" target="_blank" class="mt-auto flex justify-center px-6 py-3 bg-bread-warm text-white rounded-full hover:bg-bread-dark transition-all items-center font-bold tap-target"><i data-lucide="message-circle" class="w-4 h-4 mr-2"></i> WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div x-cloak x-show="modalImage" x-transition.opacity.duration.300ms class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" @click.self="closeModal()">
+        <div class="relative max-w-lg w-full animate-fade-in-up">
+            <button @click="closeModal()" class="absolute top-2 right-2 p-2 bg-black/60 backdrop-blur-sm rounded-full text-white hover:bg-bread-warm transition tap-target z-20"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <img :src="modalImage" @click="closeModal()" class="w-full rounded-2xl shadow-2xl max-h-[85vh] object-contain cursor-pointer" alt="Фото выпечки">
+        </div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-bread-light transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3"><div class="w-10 h-10 bg-bread-warm rounded-full flex items-center justify-center"><i data-lucide="croissant" class="w-5 h-5 text-white"></i></div><span class="font-serif text-xl md:text-2xl font-bold text-bread-dark">Ромовая баба</span></a>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#menu" class="hover:text-bread-warm transition-colors">Меню</a>
+                <a href="#reviews" class="hover:text-bread-warm transition-colors">Отзывы</a>
+                <a href="#contacts" class="hover:text-bread-warm transition-colors">Адреса</a>
+            </nav>
+            <a :href="whatsappLink" target="_blank" class="hidden md:flex px-6 py-2.5 bg-bread-warm text-white rounded-full hover:bg-bread-dark transition-all items-center font-medium tap-target"><i data-lucide="message-circle" class="w-4 h-4 mr-2"></i> WhatsApp</a>
+            <button @click="isMobileMenuOpen=true" class="md:hidden p-2 hover:bg-bread-light rounded-full transition-colors tap-target"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center text-center px-4 overflow-hidden">
+            <img src="https://image.qwenlm.ai/public_source/57121bd5-c3fb-41da-ba48-b6882aecab0b/184a8fa91-74cf-4a29-80e5-fd1686a96a03.png" alt="Интерьер пекарни Ромовая баба" class="absolute inset-0 w-full h-full object-cover hero-img-fix" loading="eager">
+            <div class="relative glass-box p-8 md:p-16 rounded-[2.5rem] max-w-3xl animate-fade-in-up">
+                <div class="inline-block px-4 py-1.5 bg-white/20 rounded-full text-white/90 text-sm font-medium mb-6">🌾 Свежая выпечка каждый день</div>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 drop-shadow-md leading-tight">Вкус, который <br> возвращает в детство</h1>
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-medium">Свежая выпечка и домашние пироги в&nbsp;Барнауле.<br class="hidden md:block"> Готовим с любовью каждый день.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#menu" class="px-10 py-4 bg-white text-bread-dark rounded-full font-bold shadow-lg hover:scale-105 transition-all duration-300 tap-target">Смотреть меню</a>
+                    <a :href="whatsappLink" target="_blank" class="px-10 py-4 bg-bread-warm text-white rounded-full font-bold shadow-lg hover:bg-bread-dark hover:scale-105 transition-all duration-300 tap-target">Заказать</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6"><div class="w-14 h-14 mx-auto mb-4 bg-bread-light/30 rounded-2xl flex items-center justify-center"><i data-lucide="wheat" class="w-7 h-7 text-bread-warm"></i></div><h3 class="font-bold text-sm md:text-base mb-1">Свежие ингредиенты</h3><p class="text-textlight text-xs md:text-sm">Только натуральные продукты</p></div>
+                <div class="text-center p-6"><div class="w-14 h-14 mx-auto mb-4 bg-bread-light/30 rounded-2xl flex items-center justify-center"><i data-lucide="clock" class="w-7 h-7 text-bread-warm"></i></div><h3 class="font-bold text-sm md:text-base mb-1">Свежая выпечка</h3><p class="text-textlight text-xs md:text-sm">Печём с утра каждый день</p></div>
+                <div class="text-center p-6"><div class="w-14 h-14 mx-auto mb-4 bg-bread-light/30 rounded-2xl flex items-center justify-center"><i data-lucide="heart" class="w-7 h-7 text-bread-warm"></i></div><h3 class="font-bold text-sm md:text-base mb-1">С любовью</h3><p class="text-textlight text-xs md:text-sm">Рецепты от наших бабушек</p></div>
+                <div class="text-center p-6"><div class="w-14 h-14 mx-auto mb-4 bg-bread-light/30 rounded-2xl flex items-center justify-center"><i data-lucide="truck" class="w-7 h-7 text-bread-warm"></i></div><h3 class="font-bold text-sm md:text-base mb-1">Доставка</h3><p class="text-textlight text-xs md:text-sm">По всему Барнаулу</p></div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Наше меню</h2><p class="text-textlight max-w-xl mx-auto">Попробуйте нашу фирменную выпечку и домашние пироги, приготовленные по традиционным рецептам</p></div>
+                <div class="flex justify-center gap-3 mb-12 flex-wrap">
+                    <button @click="activeCategory='all'" :class="activeCategory==='all'?'tab-active':'tab-inactive'" class="px-6 py-2.5 rounded-full font-medium transition-all duration-300 text-sm md:text-base tap-target">Все</button>
+                    <button @click="activeCategory='pastry'" :class="activeCategory==='pastry'?'tab-active':'tab-inactive'" class="px-6 py-2.5 rounded-full font-medium transition-all duration-300 text-sm md:text-base tap-target">Выпечка</button>
+                    <button @click="activeCategory='pies'" :class="activeCategory==='pies'?'tab-active':'tab-inactive'" class="px-6 py-2.5 rounded-full font-medium transition-all duration-300 text-sm md:text-base tap-target">Пироги</button>
+                    <button @click="activeCategory='our-menu'" :class="activeCategory==='our-menu'?'tab-active':'tab-inactive'" class="px-6 py-2.5 rounded-full font-medium transition-all duration-300 text-sm md:text-base tap-target">Наше меню</button>
+                </div>
+                <div class="relative">
+                    <button @click="$refs.menuScroll.scrollBy({left:-300,behavior:'smooth'})" class="hidden md:flex absolute left-0 -ml-14 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 rounded-full shadow-lg items-center justify-center hover:bg-bread-warm hover:text-white transition-all tap-target"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                    <button @click="$refs.menuScroll.scrollBy({left:300,behavior:'smooth'})" class="hidden md:flex absolute right-0 -mr-14 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 rounded-full shadow-lg items-center justify-center hover:bg-bread-warm hover:text-white transition-all tap-target"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                    <div x-ref="menuScroll" class="snap-container drag-scroll-container flex overflow-x-auto scrollbar-hide gap-6 pb-4 px-4">
+                        <template x-for="item in filteredItems()" :key="item.id">
+                            <div class="snap-item min-w-[280px] w-72 bg-white rounded-3xl overflow-hidden shadow-sm border border-bread-light card-hover transition-all duration-300">
+                                <div class="relative cursor-pointer group" @click="openModal(item.img)">
+                                    <picture>
+                                        <source :src="item.img.endsWith('.webp')?item.img:item.img+'.webp'" type="image/webp">
+                                        <img :src="item.img" :alt="item.name" class="h-56 w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+                                    </picture>
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center"><div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3"><i data-lucide="zoom-in" class="w-5 h-5 text-bread-dark"></i></div></div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg" x-text="item.name"></h3><span class="inline-block px-2.5 py-0.5 bg-bread-light/30 rounded-full text-xs font-medium text-bread-warm" x-text="item.category==='pastry'?'Выпечка':(item.category==='pies'?'Пирог':'Наше меню')"></span></div>
+                                    <p class="text-textlight text-sm mb-5 h-10 overflow-hidden" x-text="item.desc"></p>
+                                    <div class="flex justify-between items-center"><span class="font-bold text-bread-warm text-xl" x-text="item.price"></span><a :href="whatsappLink" target="_blank" class="px-5 py-2.5 bg-bread-warm text-white rounded-full text-sm font-medium hover:bg-bread-dark transition-colors flex items-center gap-2 tap-target"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Заказать</a></div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-bread-light/20">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-8 text-bread-dark leading-tight">«Ромовая баба» — это не просто пекарня.</h2>
+                <p class="text-textlight text-lg leading-relaxed mb-6">Это место, где каждое утро начинается с аромата свежеиспеченного хлеба, ванили и корицы. Мы верим, что настоящая выпечка должна быть такой же, как дома у бабушки: приготовленной с душой, из натуральных фермерских продуктов, без искусственных добавок.</p>
+                <p class="text-textlight text-lg leading-relaxed">Наши пекари приходят задолго до рассвета, чтобы к вашему завтраку на витрине красовались горячие круассаны, румяные пироги и наша фирменная, сочная ромовая баба.</p>
+            </div>
+        </section>
+
+        <section id="reviews" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16"><h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Отзывы наших гостей</h2><p class="text-textlight max-w-xl mx-auto">Более 5000 довольных клиентов за 8 лет работы</p></div>
+                <div class="relative">
+                    <button @click="$refs.reviewsScroll.scrollBy({left:-300,behavior:'smooth'})" class="hidden md:flex absolute left-0 -ml-14 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-bread-light rounded-full shadow-md items-center justify-center hover:bg-bread-warm hover:text-white transition-all tap-target"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                    <button @click="$refs.reviewsScroll.scrollBy({left:300,behavior:'smooth'})" class="hidden md:flex absolute right-0 -mr-14 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-bread-light rounded-full shadow-md items-center justify-center hover:bg-bread-warm hover:text-white transition-all tap-target"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                    <div x-ref="reviewsScroll" class="snap-container drag-scroll-container flex overflow-x-auto scrollbar-hide gap-6 pb-8 px-4">
+                        <template x-for="(review, index) in reviews" :key="index">
+                            <div class="snap-item min-w-[280px] w-72 bg-[#FFFBF5] p-6 pt-28 rounded-3xl border border-bread-light/50 card-hover transition-all duration-300 relative">
+                                <div class="absolute top-8 left-6"><div class="w-12 h-12 bg-bread-warm rounded-full flex items-center justify-center text-white font-bold text-xl shadow-sm" x-text="review.name[0]"></div></div>
+                                <div class="flex gap-1 mb-5 stars"><template x-for="s in 5" :key="s"><i :data-lucide="s <= review.rating ? 'star' : 'star'" :class="s <= review.rating ? 'fill-current' : 'text-bread-light'" class="w-4 h-4"></i></template></div>
+                                <p class="text-textmain text-sm leading-relaxed mb-4 h-16 overflow-hidden" x-text="review.text"></p>
+                                <p class="font-bold text-sm text-bread-warm" x-text="review.name"></p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-bread-dark to-bread-warm"></div>
+            <div class="relative max-w-4xl mx-auto px-4 text-center"><h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6">Закажите пироги на праздник</h2><p class="text-white/80 text-lg mb-0 max-w-2xl mx-auto">Именины, корпоратив или просто семейный ужин — наши пироги сделают ваш стол особенным. Принимаем заказы заранее!</p></div>
+        </section>
+
+        <section id="contacts" class="py-24 bg-bread-dark text-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12"><h2 class="text-4xl font-serif font-bold mb-4">Наши адреса</h2><p class="text-white/80 text-lg">Выберите ближайшую пекарню или свяжитесь с нами</p></div>
+                <div class="text-center mb-12"><a href="tel:+79619915611" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-amber-400/60 text-white hover:bg-white/10 hover:border-amber-400 transition-all duration-300 tap-target"><i data-lucide="phone" class="w-6 h-6 text-amber-400"></i> Единый номер: +7 (961) 991-56-11</a></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <template x-for="(addr, idx) in ['ул. 280-летия Барнаула, 24','пр. Красноармейский, 69Б','ул. Попова, 162','пр. Ленина, 47','ул. Гущина, 182','пр. Социалистический, 38']" :key="idx">
+                        <a :href="'https://2gis.ru/barnaul/search/'+addr" target="_blank" class="group glass-card p-6 rounded-2xl transition-all duration-300 flex items-start gap-4 hover:-translate-y-1 tap-target">
+                            <div class="w-10 h-10 bg-bread-warm/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-bread-warm transition-colors"><i data-lucide="map-pin" class="w-5 h-5 text-white"></i></div>
+                            <div class="flex-1"><p class="font-medium text-white group-hover:text-amber-200 transition-colors" x-text="addr"></p><span class="inline-flex items-center gap-1 mt-2 text-sm text-white/70 group-hover:text-white transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i> Открыть в 2ГИС</span></div>
+                        </a>
+                    </template>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a :href="whatsappLink" target="_blank" class="inline-flex items-center px-8 py-4 bg-bread-warm rounded-2xl font-bold hover:bg-bread-dark transition-colors tap-target"><i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Написать в WhatsApp</a>
+                    <a href="tel:+79619915611" class="inline-flex items-center px-8 py-4 bg-white/10 border border-white/20 rounded-2xl font-bold hover:bg-white/20 transition-colors tap-target"><i data-lucide="phone" class="w-5 h-5 mr-2"></i> Позвонить</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 text-center text-textlight bg-bread-light/20 border-t border-bread-light">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Пекарня «Ромовая баба». Барнаул.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-bread-warm transition-colors tap-target"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-bread-warm transition-colors tap-target"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-bread-warm transition-colors tap-target"><i data-lucide="vk" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
