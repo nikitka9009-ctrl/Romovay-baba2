@@ -59,7 +59,10 @@
 <body class="font-sans text-textmain bg-[#FFFBF5] antialiased"
       x-data="{ isMobileMenuOpen: false, activeCategory: 'all', modalImage: null, whatsappLink: 'https://wa.me/79619915611', menuItems: [], reviews: [], 
                 async init() { 
-                    const [p, r] = await Promise.all([fetch('./data/products.json').then(res=>res.json()), fetch('./data/reviews.json').then(res=>res.json())]);
+                    const [p, r] = await Promise.all([
+                        fetch('./data/products.json').then(res=>res.json()).then(d=>d.products),
+                        fetch('./data/reviews.json').then(res=>res.json()).then(d=>d.reviews)
+                    ]);
                     this.menuItems = p; this.reviews = r; 
                     setTimeout(() => lucide.createIcons(), 100);
                 },
