@@ -10,36 +10,42 @@ public_folder: "/images"
 collections:
   - name: "menu"
     label: "🥐 Меню"
-    file: "data/products.json"
-    format: "json"
-    fields:
-      - label: "Товары"
-        name: "products"
-        widget: "list"
-        allow_add: true
-        allow_delete: true
+    files:
+      - name: "products_list"
+        label: "Список товаров"
+        file: "data/products.json"
+        format: "json"
         fields:
-          - { label: "ID", name: "id", widget: "number" }
-          - { label: "Название", name: "name", widget: "string" }
-          - { label: "Описание", name: "desc", widget: "string" }
-          - { label: "Цена", name: "price", widget: "string" }
-          - { label: "Категория", name: "category", widget: "select", options: ["pastry", "pies", "our-menu"] }
-          - { label: "Путь к фото", name: "img", widget: "string" }
+          - label: "Товары"
+            name: "products"
+            widget: "list"
+            allow_add: true
+            allow_delete: true
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Название", name: "name", widget: "string" }
+              - { label: "Описание", name: "desc", widget: "string" }
+              - { label: "Цена", name: "price", widget: "string" }
+              - { label: "Категория", name: "category", widget: "select", options: ["pastry", "pies", "our-menu"] }
+              - { label: "Путь к фото", name: "img", widget: "string" }
 
   - name: "reviews"
     label: "💬 Отзывы"
-    file: "data/reviews.json"
-    format: "json"
-    fields:
-      - label: "Отзывы"
-        name: "reviews"
-        widget: "list"
-        allow_add: true
-        allow_delete: true
+    files:
+      - name: "reviews_list"
+        label: "Список отзывов"
+        file: "data/reviews.json"
+        format: "json"
         fields:
-          - { label: "Имя", name: "name", widget: "string" }
-          - { label: "Текст", name: "text", widget: "text" }
-          - { label: "Рейтинг", name: "rating", widget: "select", options: [1, 2, 3, 4, 5] }
+          - label: "Отзывы"
+            name: "reviews"
+            widget: "list"
+            allow_add: true
+            allow_delete: true
+            fields:
+              - { label: "Имя", name: "name", widget: "string" }
+              - { label: "Текст", name: "text", widget: "text" }
+              - { label: "Рейтинг", name: "rating", widget: "select", options: [1, 2, 3, 4, 5] }
 
   - name: "settings"
     label: "⚙️ Настройки сайта"
