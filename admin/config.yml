@@ -3,7 +3,6 @@ backend:
   repo: nikitka9009-ctrl/Romovay-baba2
   branch: main
   client_id: Ov23liyTw3XCmlUbsz9L
-  auth_endpoint: false
 
 media_folder: "images"
 public_folder: "/images"
@@ -12,7 +11,7 @@ collections:
   - name: "menu"
     label: "🥐 Меню"
     files:
-      - name: "products_list"
+      - name: "products"
         label: "Список товаров"
         file: "data/products.json"
         format: "json"
@@ -28,7 +27,7 @@ collections:
               - { label: "Описание", name: "desc", widget: "string" }
               - { label: "Цена", name: "price", widget: "string" }
               - { label: "Категория", name: "category", widget: "select", options: ["pastry", "pies", "our-menu"] }
-              - { label: "Путь к фото", name: "img", widget: "string" }
+              - { label: "Фото (путь)", name: "img", widget: "string" }
 
   - name: "reviews"
     label: "💬 Отзывы"
@@ -49,14 +48,14 @@ collections:
               - { label: "Рейтинг", name: "rating", widget: "select", options: [1, 2, 3, 4, 5] }
 
   - name: "settings"
-    label: "⚙️ Настройки сайта"
+    label: "⚙️ Настройки"
     files:
       - name: "hours"
-        label: "🕒 Время работы"
+        label: "🕒 Время работы и телефон"
         file: "data/settings.json"
         format: "json"
         fields:
-          - { label: "Текст графика", name: "work_hours_text", widget: "string", default: "ежедневно с 09:00 до 20:45" }
+          - { label: "График", name: "work_hours_text", widget: "string", default: "ежедневно с 09:00 до 20:45" }
           - { label: "Телефон", name: "phone", widget: "string", default: "+7 (961) 991-56-11" }
       - name: "promos"
         label: "🔥 Акции"
